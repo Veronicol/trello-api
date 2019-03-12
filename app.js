@@ -5,6 +5,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 const columnRoutes = require('./routes/columns.routes');
 const cardsRoutes = require('./routes/cards.routes');
@@ -14,6 +15,8 @@ require('./configs/db.config');
 const session = require('./configs/session.config');
 
 const app = express();
+
+app.use(cors())
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -1,6 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-// write your routes here
+const cardsController = require('../controllers/cards.controller');
+
+router.get('/', cardsController.list)
+router.post('/', cardsController.create)
+router.get('/:id', cardsController.detail)
+router.put('/:id', cardsController.update)
+router.delete('/:id', cardsController.delete)
 
 module.exports = router;
+
