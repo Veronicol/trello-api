@@ -9,11 +9,14 @@ module.exports.list = (req, res, next) => {
 
 module.exports.create = (req, res, next) => {
   const card = new Card(req.body);
-
+  if ( req.file ) {
+    card.imageUrl = req.file.secure_url;
+  }
   card.save()
     .then((card) => { res.status(201).json(card)})
     .catch( err => next(err))
 }
+
 
 module.exports.detail = (req, res, next) => {
   Card.findById(req.params.id)

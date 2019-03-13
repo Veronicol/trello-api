@@ -2,8 +2,7 @@ require('dotenv').config();
 
 const createError = require('http-errors');
 const express = require('express');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+const cookieParser = require('cookie-parser');const logger = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors')
 
@@ -16,12 +15,12 @@ const session = require('./configs/session.config');
 
 const app = express();
 
-app.use(cors())
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors())
 
 app.use(session);
 
@@ -61,3 +60,8 @@ app.use(function (error, req, res, next) {
 });
 
 module.exports = app;
+
+
+
+//////////////
+

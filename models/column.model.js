@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-//const Card = require('./card.model')
-
 const columnSchema = new mongoose.Schema({
   position: {
     type: Number,
